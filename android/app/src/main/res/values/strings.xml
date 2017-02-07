@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">EcoLocations</string>
-    <string name="title_activity_main_maps">Map</string>
+    <string name="title_activity_main_maps">EcoLocations</string>
 </resources>

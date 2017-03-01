@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="bottom"
-    sothree:umanoPanelHeight="68dp"
+    sothree:umanoPanelHeight="@dimen/slide_size"
     sothree:umanoShadowHeight="4dp"
     sothree:umanoParallaxOffset="100dp"
     sothree:umanoDragView="@+id/dragView"
@@ -16,7 +16,8 @@
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/map_layout">
         <fragment xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/map"
@@ -34,16 +35,33 @@
             app:backgroundTint="@android:color/white"/>
     </android.support.design.widget.CoordinatorLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/dragView">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/slide_size"
+            android:paddingStart="16dp"
+            android:gravity="center_vertical"
+            android:text="Refresh to view nearby protected areas"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/refresh_text"/>
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:id="@+id/spinner"/>
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/location_list">
-
-        </android.support.v7.widget.RecyclerView>
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            android:id="@+id/location_list"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layoutManager="LinearLayoutManager"/>
+    </RelativeLayout>
 
 </com.sothree.slidinguppanel.SlidingUpPanelLayout>
